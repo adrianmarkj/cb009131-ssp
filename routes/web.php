@@ -33,7 +33,7 @@ Route::get('/dev', function () {
 
     // $user = (new \App\Models\Auth\User)->where('type', 'admin')->first();
     // debug($user);
-    dd(resolve('cb009131_ssp'));
+    // dd(resolve('cb009131_ssp'));
     return view('home');
 });
 

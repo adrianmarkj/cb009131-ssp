@@ -33,7 +33,43 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Administration
+                            </a>
 
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('admin.dashboard') }}">
+                                    Dashboard
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <span>Authentication</span>
+                                <a class="dropdown-item" href="{{ route('users.index') }}">
+                                    Users
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <span>Content</span>
+                                <a class="dropdown-item" href="{{ route('pages.index') }}">
+                                    Pages
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <span>Event</span>
+                                <a class="dropdown-item" href="{{ route('addresses.index') }}">
+                                    Addresses
+                                </a>
+                                <a class="dropdown-item" href="{{ route('dates.index') }}">
+                                    Dates
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ route('categories.index') }}">
+                                    Categories
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ route('events.index') }}">
+                                    Events
+                                </a>
+                            </div>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
