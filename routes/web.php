@@ -18,18 +18,23 @@ Route::get('/', function () {
 });
 
 Route::get('/dev', function () {
-    $admin = \App\Models\Auth\User::create([
-        'name' => 'Administartor',
-        'email' => rand(0, 100).'admin@admin.com',
-        'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-        'remember_token' => \Illuminate\Support\Str::random(10),
-        'first_name' => 'John',
-        'last_name' => 'Doe',
-        'type' => 'admin',
-    ]);
+    // $admin = \App\Models\Auth\User::create([
+    //     'name' => 'Administartor',
+    //     'email' => rand(0, 100).'admin@admin.com',
+    //     'email_verified_at' => now(),
+    //     'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+    //     'remember_token' => \Illuminate\Support\Str::random(10),
+    //     'first_name' => 'John',
+    //     'last_name' => 'Doe',
+    //     'type' => 'admin',
+    // ]);
 
-    dd($admin);
+    // dd($admin);
+
+    // $user = (new \App\Models\Auth\User)->where('type', 'admin')->first();
+    // debug($user);
+    dd(resolve('cb009131_ssp'));
+    return view('home');
 });
 
 Auth::routes();
