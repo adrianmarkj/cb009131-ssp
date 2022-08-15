@@ -5,11 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <x-model-list :columns="[
-                'name',
-                'email',
-                'created_at'
+                'title',
+                'url',
+                'summary',
+                'content',
+                'sort_order',
+                'status',
             ]"
-            :models="$users" />
+            :models="$categories" />
         </div>
     </div>
 </div>
