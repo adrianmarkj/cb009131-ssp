@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
 
         // create an admin
         \App\Models\Auth\User::create([
-            'name' => 'Administartor',
+            'name' => 'Administrator',
             'email' => 'admin@admin.com',
             'email_verified_at' => now(),
             'password' => Hash::make('password'),
@@ -27,6 +27,18 @@ class DatabaseSeeder extends Seeder
             'first_name' => 'John',
             'last_name' => 'Doe',
             'type' => 'admin',
+        ]);
+
+        // create an normal user
+        \App\Models\Auth\User::create([
+            'name' => 'Site User',
+            'email' => 'user@user.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'remember_token' => Str::random(10),
+            'first_name' => 'John',
+            'last_name' => 'Doe',
+            'type' => 'user',
         ]);
 
         \App\Models\Auth\User::factory(10)->create();
