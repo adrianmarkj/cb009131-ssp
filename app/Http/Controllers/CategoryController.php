@@ -19,7 +19,7 @@ class CategoryController extends Controller
         ->newQuery()
         ->paginate(10);
 
-        return view('admin.categroies.index', [
+        return view('admin.categories.index', [
             'categories' => $categories
         ]);
     }
