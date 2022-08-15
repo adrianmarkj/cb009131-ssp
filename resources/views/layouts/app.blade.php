@@ -32,48 +32,48 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     @auth
-                    @can('accessAdministration')
-                        <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav me-auto">
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    Administration
-                                </a>
+                        @can('accessAdministration')
+                            <!-- Left Side Of Navbar -->
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        Administration
+                                    </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('admin.dashboard') }}">
-                                        Dashboard
-                                    </a>
-                                    <div class="dropdown-divider"></div>
-                                    <small class="d-block ps-2">Authentication</small>
-                                    <a class="dropdown-item" href="{{ route('users.index') }}">
-                                        Users
-                                    </a>
-                                    <div class="dropdown-divider"></div>
-                                    <small class="d-block ps-2">Content</small>
-                                    <a class="dropdown-item" href="{{ route('pages.index') }}">
-                                        Pages
-                                    </a>
-                                    <div class="dropdown-divider"></div>
-                                    <small class="d-block ps-2">Event</small>
-                                    <a class="dropdown-item" href="{{ route('addresses.index') }}">
-                                        Addresses
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('dates.index') }}">
-                                        Dates
-                                    </a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{ route('categories.index') }}">
-                                        Categories
-                                    </a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{ route('events.index') }}">
-                                        Events
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
-                    @endcan
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('admin.dashboard') }}">
+                                            Dashboard
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <small class="d-block ps-2">Authentication</small>
+                                        <a class="dropdown-item" href="{{ route('users.index') }}">
+                                            Users
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <small class="d-block ps-2">Content</small>
+                                        <a class="dropdown-item" href="{{ route('pages.index') }}">
+                                            Pages
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <small class="d-block ps-2">Event</small>
+                                        <a class="dropdown-item" href="{{ route('addresses.index') }}">
+                                            Addresses
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('dates.index') }}">
+                                            Dates
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{{ route('categories.index') }}">
+                                            Categories
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{{ route('events.index') }}">
+                                            Events
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        @endcan
                     @endauth
 
                     <!-- Right Side Of Navbar -->

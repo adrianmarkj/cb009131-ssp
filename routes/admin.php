@@ -5,8 +5,8 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::group([
-    'prefix' => 'admin'
-
+    'prefix' => 'admin',
+    'middleware' => ['auth', 'type:admin'],
 ], function(){
     // Dashboard
     Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
