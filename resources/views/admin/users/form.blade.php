@@ -4,13 +4,13 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8 bg-white p-4">
-            <form>
-                {{-- 'name',
-                'email',
-                'password',
-                'first_name',
-                'last_name',
-                'type' --}}
+            <form action="{{ route('users.update', $user->id) }}" method="POST">
+                @method('PUT')
+                @csrf
+                <div class="col">
+                    <h4>Authentication Details</h4>
+                    <hr>
+                </div>
                 <div class="row mb-2">
                     <div class="col-md-6">
                         <x-form-input id="name" name="name" label="Name" type="text" value="{{ $user->name }}" help="Your Name"/>
@@ -28,14 +28,26 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
-                        <x-form-input id="first_name" name="first_name" label="First Name" type="text" value="{{ $user->first_name }}" help="First Name"/>
+                    <div class="col-12">
+                        <h4>Personal Details</h4>
+                        <hr>
                     </div>
-                    <div class="col-md-12">
-                        <x-form-input id="last_name" name="last_name" label="Last Name" type="text" value="{{ $user->last_name }}" help="Last Name"/>
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <x-form-input id="first_name" name="first_name" label="First Name" type="text" value="{{ $user->first_name }}" help="First Name"/>
+                            </div>
+                            <div class="col-md-6">
+                                <x-form-input id="last_name" name="last_name" label="Last Name" type="text" value="{{ $user->last_name }}" help="Last Name"/>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+
+                <x-form-select id="type" name="type" label="Type" value="{{ $user->type }}" help="User Type" placeholder="Select Type" :options="['admin', 'user']"/>
+
+                </select>
+                <button type="submit" class="btn btn-primary">Save</button>
               </form>
         </div>
     </div>

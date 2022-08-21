@@ -4,14 +4,14 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class FormInput extends Component
+class FormSelect extends Component
 {
     public $id;
     public $name;
     public $label;
-    public $type;
     public $value;
     public $placeholder;
+    public $options;
     public $help;
     public $required;
 
@@ -20,14 +20,14 @@ class FormInput extends Component
      *
      * @return void
      */
-    public function __construct($id, $name, $label, $type, $value, $placeholder = '', $help = '', $required = false)
+    public function __construct($id, $name, $label, $value, $placeholder = '', $options = [], $help = '', $required = false)
     {
         $this->id = $id;
         $this->name = $name;
         $this->label = $label;
-        $this->type = $type;
         $this->value = $value;
         $this->placeholder = $placeholder;
+        $this->options = $options;
         $this->help = $help;
         $this->required = $required;
     }
@@ -39,13 +39,13 @@ class FormInput extends Component
      */
     public function render()
     {
-        return view('components.form-input', [
+        return view('components.form-select', [
             'id' => $this->id,
             'name' => $this->name,
             'label' => $this->label,
-            'type' => $this->type,
             'value' => $this->value,
             'placeholder' => $this->placeholder,
+            'options' => $this->options,
             'help' => $this->help,
             'required' => $this->required,
         ]);

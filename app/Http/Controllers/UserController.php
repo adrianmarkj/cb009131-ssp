@@ -75,9 +75,18 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,User $user)
     {
-        //
+        $request->validate([
+            "name" => "required|max:255",
+            "email" => "required|max:255",
+            "password" => "nullable",
+            "password_confirmation" => "nullable",
+            "first_name" => "required|max:255",
+            "last_name" => "required|max:255",
+            "type" => "required",
+        ]);
+        dd($request, $user);
     }
 
     /**
@@ -88,6 +97,11 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        // Prevent Deletion if it is the Current User
+        if ($id == auth()->id()) {
+            return redirect()->route('users.index')->with('error', 'You Cannot Delete Yourself');
+        }
+
         (new User())->newQuery()->find($id)->delete();
         return redirect()->route('users.index');
     }
