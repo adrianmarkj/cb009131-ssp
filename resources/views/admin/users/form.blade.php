@@ -37,9 +37,6 @@
                     </div>
 
                     <div class="col">
-                        @if ($user->avatar)
-                        <img src="/storage/{{ ($user->avatar) }}" class="w-25 rounded mb-2">
-                        @endif
                         <x-form-input id="avatar" name="first_name" label="First Name" type="text" value="{{ $user->first_name }}" help="First Name"/>
                     </div>
 
