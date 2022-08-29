@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rules\Password;
 use App\Models\Auth\User;
 
 class UserController extends Controller
@@ -42,25 +43,16 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        $validated = $request->validate([
-            "name" => "required|max:255",
-            "email" => "required|max:255",
-            "password" => ['required', 'confirmed', Password::min(8)->mixedCase()],
-            "password_confirmation" => "nullable",
-            "first_name" => "required|max:255",
-            "last_name" => "required|max:255",
-            "type" => "required",
-        ]);
-
-        //check if the password is not empty and if so then hash it
-        if (!is_null($validated['password'])) {
-            $validated['password'] = bcrypt($validated['password']);
+        if ($request->get('password')) {
+            $request->offsetSet('password', bcrypt($request->password));
         }
         else{
-            unset($validated['password']);
+            $request->offsetUnset('password');
         }
+
+        $validated = $request->validated();
 
         $user = (new User())->create($validated);
         return redirect()->route('users.index')->with('success', 'User ', $user->first_name ,' Created Successfully');
@@ -97,25 +89,16 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,User $user)
+    public function update(UpdateUserRequest $request,User $user)
     {
-        $validated = $request->validate([
-            "name" => "required|max:255",
-            "email" => "required|max:255",
-            "password" => ['nullable', 'confirmed', Password::min(8)->mixedCase()],
-            "password_confirmation" => "nullable",
-            "first_name" => "required|max:255",
-            "last_name" => "required|max:255",
-            "type" => "required",
-        ]);
-
-        //check if the password is not empty and if so then hash it
-        if (!is_null($validated['password'])) {
-            $validated['password'] = bcrypt($validated['password']);
+        if ($request->get('password')) {
+            $request->offsetSet('password', bcrypt($request->password));
         }
         else{
-            unset($validated['password']);
+            $request->offsetUnset('password');
         }
+
+        $validated = $request->validated();
 
         //Update User
         $user->update($validated);
