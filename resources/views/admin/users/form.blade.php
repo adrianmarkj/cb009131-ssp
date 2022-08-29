@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8 bg-white p-4">
-            <form action="{{ $user->id ? route('users.update', $user->id) : route('users.store') }}" method="POST">
+            <form action="{{ $user->id ? route('users.update', $user->id) : route('users.store') }}" method="POST" enctype="multipart/form-data">
                 @if ($user->id)
                     @method('PUT')
                 @endif
@@ -35,13 +35,21 @@
                         <h4>Personal Details</h4>
                         <hr>
                     </div>
+
+                    <div class="col">
+                        @if ($user->avatar)
+                        <img src="/storage/{{ ($user->avatar) }}" class="w-25 rounded mb-2">
+                        @endif
+                        <x-form-input id="avatar" name="first_name" label="First Name" type="text" value="{{ $user->first_name }}" help="First Name"/>
+                    </div>
+
                     <div class="col">
                         <div class="row">
                             <div class="col-md-6">
-                                <x-form-input id="first_name" name="first_name" label="First Name" type="text" value="{{ $user->first_name }}" help="First Name"/>
+                                <x-form-input id="first_name" name="avatar" label="Profile Picture" type="file" help="Recommended Resolution is 180px x 180px"/>
                             </div>
                             <div class="col-md-6">
-                                <x-form-input id="last_name" name="last_name" label="Last Name" type="text" value="{{ $user->last_name }}" help="Last Name"/>
+                                <x-form-input id="last_name" name="last_name" label="Last Name" type="text" value="{{ $user->last_name }}" help="Last Name" value=""/>
                             </div>
                         </div>
                     </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Auth\User;
 
 class UserController extends Controller
@@ -54,6 +55,10 @@ class UserController extends Controller
 
         $validated = $request->validated();
 
+        if ($request->file('avatar')) {
+            $validated['avatar'] = $request->file('avtar')->store('avatars');
+        }
+
         $user = (new User())->create($validated);
         return redirect()->route('users.index')->with('success', 'User ', $user->first_name ,' Created Successfully');
     }
@@ -98,7 +103,12 @@ class UserController extends Controller
             $request->offsetUnset('password');
         }
 
-        $validated = $request->validated();
+        $validated = $request->all();
+
+        if ($request->file('avatar')) {
+            Storage::delete($user->avatar);
+            $validated['avatar'] = $request->file('avtar')->store('avatars');
+        }
 
         //Update User
         $user->update($validated);

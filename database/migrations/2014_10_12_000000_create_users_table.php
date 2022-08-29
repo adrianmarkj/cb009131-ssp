@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->enum('type', ['admin', 'user'])->default('user');
+            $table->string('avatar')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
