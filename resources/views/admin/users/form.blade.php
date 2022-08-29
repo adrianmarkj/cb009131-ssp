@@ -16,7 +16,7 @@
                 </div>
                 <div class="row mb-2">
                     <div class="col-md-6">
-                        <x-form-input id="name" name="name" label="Name" type="text" value="{{ $user->name }}" help="Your Name"/>
+                        <x-form-input id="name" name="name" label="Name" type="text" value="{{ $user->name }}" help="Your Name" required/>
                     </div>
                     <div class="col-md-6">
                         <x-form-input id="email" name="email" label="Email" type="email" value="{{ $user->email }}" help="Your Primary Email"/>
@@ -24,10 +24,10 @@
                 </div>
                 <div class="row mb-2">
                     <div class="col-md-6">
-                        <x-form-input id="password" name="password" label="Password" type="password" value="" help="Min 8"/>
+                        <x-form-input id="password" name="password" label="Password" type="password" help="Min 8"/>
                     </div>
                     <div class="col-md-6">
-                        <x-form-input id="password_confirmation" name="password_confirmation" label="Confirm Password" type="password" value=""/>
+                        <x-form-input id="password_confirmation" name="password_confirmation" label="Confirm Password" type="password"/>
                     </div>
                 </div>
                 <div class="row">
@@ -36,23 +36,24 @@
                         <hr>
                     </div>
 
-                    <div class="col">
-                        <x-form-input id="avatar" name="first_name" label="First Name" type="text" value="{{ $user->first_name }}" help="First Name"/>
+                    <div class="col-12">
+                        <x-form-input id="avatar" name="avatar" label="Profile Image" type="file" value="{{ $user->avatar }}"
+                            help="Please upload an image with the resolution of 180px X 180px" />
                     </div>
 
-                    <div class="col">
+                    <div class="col-12">
                         <div class="row">
                             <div class="col-md-6">
-                                <x-form-input id="first_name" name="avatar" label="Profile Picture" type="file" help="Recommended Resolution is 180px x 180px"/>
+                                <x-form-input id="first_name" name="first_name" label="First Name" type="text" value="{{ $user->first_name }}" help="First Name" />
                             </div>
                             <div class="col-md-6">
-                                <x-form-input id="last_name" name="last_name" label="Last Name" type="text" value="{{ $user->last_name }}" help="Last Name" value=""/>
+                                <x-form-input id="last_name" name="last_name" label="Last Name" type="text" value="{{ $user->last_name }}" help="Last Name" />
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <x-form-select id="type" name="type" label="Type" value="{{ $user->type }}" help="User Type" placeholder="Select Type" :options="['admin', 'user']"/>
+                <x-form-select id="type" name="type" label="Type" value="{{ $user->type }}" help="User Type" placeholder="Select Type" :options="['admin' => 'admin', 'user' => 'user']"/>
 
                 </select>
                 <button type="submit" class="btn btn-primary">Save</button>

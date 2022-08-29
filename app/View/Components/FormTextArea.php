@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class FormInput extends Component
+class FormTextArea extends Component
 {
     public $id;
     public $name;
@@ -39,7 +39,7 @@ class FormInput extends Component
      */
     public function render()
     {
-        return view('components.form-input', [
+        return view('components.form-textarea', [
             'id' => $this->id,
             'name' => $this->name,
             'label' => $this->label,

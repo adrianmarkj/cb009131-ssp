@@ -56,7 +56,7 @@ class UserController extends Controller
         $validated = $request->validated();
 
         if ($request->file('avatar')) {
-            $validated['avatar'] = $request->file('avtar')->store('avatars');
+            $validated['avatar'] = $request->file('avatar')->store('avatars');
         }
 
         $user = (new User())->create($validated);
@@ -109,7 +109,7 @@ class UserController extends Controller
             if ($user->avatar) {
                 Storage::delete($user->avatar);
             }
-            $validated['avatar'] = $request->file('avtar')->store('avatars');
+            $validated['avatar'] = $request->file('avatar')->store('avatars');
         }
 
         //Update User

@@ -1,16 +1,21 @@
 <div class="mb-3 row">
-    <label for="{{ $id }}" class="form-label">{{ $label }}</label>
-    <input type="{{ $type }}" class="form-control @error($name) is-invalid @enderror" id="{{ $id }}" name="{{ $name }}" aria-describedby="{{ $name }}Help" value="{{ old($name, $value) }}" placeholder="{{ $placeholder }}">
-    <div id="{{ $name }}Help" class="form-text">{{ $help }}</div>
-    @error($name)
-        <div class="invalid-feedback">
-            {{ $message }}
-        </div>
-    @enderror
+    <div class="{{ $type == 'file' ? 'col-8' : '' }}">
+        <label for="{{ $id }}" class="form-label">{{ $label }}</label>
+
+        <input type="{{ $type }}" class="form-control @error($name) is-invalid @enderror" id="{{ $id }}"
+            name="{{ $name }}" aria-describedby="{{ $name }}Help" value="{{ old($name, $value) }}"
+            placeholder="{{ $placeholder }}" {{ $required ? 'required' : '' }} />
+
+        <div id="{{ $name }}Help" class="form-text">{{ $help }}</div>
+
+        @error($name)
+            <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
+    </div>
 
     @if ($type === 'file')
-        <div>
-            <img src="/storage/{{ $value }}" id="{{ $id }}-img" class="w-100">
+        <div class="col-4">
+            <img src="{{ $value }}" id="{{ $id }}-img" class="w-100">
         </div>
     @endif
 </div>
