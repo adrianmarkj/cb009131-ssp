@@ -35,13 +35,13 @@
                         $route = strtolower(Str::plural(class_basename($model)));
                     @endphp
 
-                    <a href="{{ route($route . '.show', $model->id) }}" class="btn btn-sm btn-success">
+                    <a href="{{ route('admin.' . $route . '.show', $model->id) }}" class="btn btn-sm btn-success">
                         View
                     </a>
-                    <a href="{{ route($route . '.edit', $model->id) }}" class="btn btn-sm btn-primary">
+                    <a href="{{ route('admin.' . $route . '.edit', $model->id) }}" class="btn btn-sm btn-primary">
                         Edit
                     </a>
-                    <form id="model-delete-{{ $model->id }}" action="{{ route($route . '.destroy', $model->id) }}" method="POST" class="d-inline">
+                    <form id="model-delete-{{ $model->id }}" action="{{ route('admin.' . $route . '.destroy', $model->id) }}" method="POST" class="d-inline">
                         @csrf
                         @method('DELETE')
                         <button type="button"

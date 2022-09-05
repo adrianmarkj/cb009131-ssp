@@ -7,9 +7,10 @@ use Illuminate\Support\Facades\Route;
 Route::group([
     'prefix' => 'admin',
     'middleware' => ['auth', 'type:admin'],
+    'as' => 'admin.'
 ], function(){
     // Dashboard
-    Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('dashboard', [AdminController::class, 'index'])->name('dashboard');
 
     // User
     Route::resource('users', UserController::class);

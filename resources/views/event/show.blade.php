@@ -6,7 +6,6 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header"><h1>{{ $event->name }}</h1></div>
-
                     <div class="card-body text-center">
                         <img src="{{ $event->getFirstMediaUrl('images') }}" class="img-fluid mb-3" alt="{{ $event->name }}">
                         {!! $event->description !!}

@@ -37,9 +37,9 @@ Route::get('/dev', function () {
     return view('home');
 });
 
-Route::get('/event/{url}', App\Http\Controllers\EventController::class)->name('event.show');
+Route::get('/event/{url}', App\Http\Controllers\EventController::class)->name('events.show');
 
-Route::get('{url}', App\Http\Controllers\PageController::class)->name('page.show');
+Route::get('{url}', App\Http\Controllers\PageController::class)->name('pages.show');
 
 Auth::routes();
 

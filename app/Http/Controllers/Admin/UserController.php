@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Auth\User;
+use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
@@ -60,7 +61,7 @@ class UserController extends Controller
         }
 
         $user = (new User())->create($validated);
-        return redirect()->route('users.index')->with('success', 'User ', $user->first_name ,' Created Successfully');
+        return redirect()->route('admin.users.index')->with('success', 'User ', $user->first_name ,' Created Successfully');
     }
 
     /**
@@ -114,7 +115,7 @@ class UserController extends Controller
 
         //Update User
         $user->update($validated);
-        return redirect()->route('users.index')->with('success', 'User Updated Successfully');
+        return redirect()->route('admin.users.index')->with('success', 'User Updated Successfully');
     }
 
     /**
@@ -127,10 +128,10 @@ class UserController extends Controller
     {
         // Prevent Deletion if it is the Current User
         if ($id == auth()->id()) {
-            return redirect()->route('users.index')->with('error', 'You Cannot Delete Yourself');
+            return redirect()->route('admin.users.index')->with('error', 'You Cannot Delete Yourself');
         }
 
         (new User())->newQuery()->find($id)->delete();
-        return redirect()->route('users.index');
+        return redirect()->route('admin.users.index');
     }
 }

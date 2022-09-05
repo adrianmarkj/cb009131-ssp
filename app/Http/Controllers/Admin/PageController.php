@@ -64,7 +64,7 @@ class PageController extends Controller
         }
 
         return redirect()
-            ->route('pages.index')
+            ->route('admin.pages.index')
             ->with('success', 'Page created successfully.');
     }
 
@@ -121,7 +121,7 @@ class PageController extends Controller
         }
 
         return redirect()
-            ->route('pages.index')
+            ->route('admin.pages.index')
             ->with('success', 'Page updated successfully.');
     }
 
@@ -134,6 +134,6 @@ class PageController extends Controller
     public function destroy(Page $page)
     {
         $page->delete();
-        return redirect()->route('pages.index')->with('success', 'Page Deleted Successfully');
+        return redirect()->route('admin.pages.index')->with('success', 'Page Deleted Successfully');
     }
 }

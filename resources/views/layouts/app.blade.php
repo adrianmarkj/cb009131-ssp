@@ -48,29 +48,32 @@
                                         </a>
                                         <div class="dropdown-divider"></div>
                                         <small class="d-block ps-2">Authentication</small>
-                                        <a class="dropdown-item" href="{{ route('users.index') }}">
+                                        <a class="dropdown-item" href="{{ route('admin.users.index') }}">
                                             Users
                                         </a>
                                         <div class="dropdown-divider"></div>
                                         <small class="d-block ps-2">Content</small>
-                                        <a class="dropdown-item" href="{{ route('pages.index') }}">
+                                        <a class="dropdown-item" href="{{ route('admin.pages.index') }}">
                                             Pages
                                         </a>
                                         <div class="dropdown-divider"></div>
                                         <small class="d-block ps-2">Event</small>
-                                        <a class="dropdown-item" href="{{ route('addresses.index') }}">
+                                        <a class="dropdown-item" href="{{ route('admin.addresses.index') }}">
                                             Addresses
                                         </a>
-                                        <a class="dropdown-item" href="{{ route('dates.index') }}">
+                                        <a class="dropdown-item" href="{{ route('admin.dates.index') }}">
                                             Dates
                                         </a>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="{{ route('categories.index') }}">
+                                        <a class="dropdown-item" href="{{ route('admin.categories.index') }}">
                                             Categories
                                         </a>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="{{ route('events.index') }}">
+                                        <a class="dropdown-item" href="{{ route('admin.events.index') }}">
                                             Events
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('admin.subscriptions.index') }}">
+                                            Subscriptions
                                         </a>
                                     </div>
                                 </li>
