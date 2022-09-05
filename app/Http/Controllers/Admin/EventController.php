@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\StoreDateRequest;
-use App\Http\Requests\UpdateDateRequest;
-use App\Models\Event\Date;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreEventRequest;
+use App\Http\Requests\UpdateEventRequest;
+use App\Models\Event;
 
-class DateController extends Controller
+class EventController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +32,10 @@ class DateController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreDateRequest  $request
+     * @param  \App\Http\Requests\StoreEventRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreDateRequest $request)
+    public function store(StoreEventRequest $request)
     {
         //
     }
@@ -42,10 +43,10 @@ class DateController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Event\Date  $date
+     * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show(Date $date)
+    public function show(Event $event)
     {
         //
     }
@@ -53,10 +54,10 @@ class DateController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Event\Date  $date
+     * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function edit(Date $date)
+    public function edit(Event $event)
     {
         //
     }
@@ -64,11 +65,11 @@ class DateController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateDateRequest  $request
-     * @param  \App\Models\Event\Date  $date
+     * @param  \App\Http\Requests\UpdateEventRequest  $request
+     * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateDateRequest $request, Date $date)
+    public function update(UpdateEventRequest $request, Event $event)
     {
         //
     }
@@ -76,10 +77,10 @@ class DateController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Event\Date  $date
+     * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Date $date)
+    public function destroy(Event $event)
     {
         //
     }

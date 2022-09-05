@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,17 +15,17 @@ Route::group([
     Route::resource('users', UserController::class);
 
     // Pages
-    Route::resource('pages', App\Http\Controllers\PageController::class);
+    Route::resource('pages', App\Http\Controllers\Admin\PageController::class);
 
     // Addresses
-    Route::resource('addresses', App\Http\Controllers\AddressController::class);
+    Route::resource('addresses', App\Http\Controllers\Admin\AddressController::class);
 
     // Date
-    Route::resource('dates', App\Http\Controllers\DateController::class);
+    Route::resource('dates', App\Http\Controllers\Admin\DateController::class);
 
     // Categories
-    Route::resource('categories', App\Http\Controllers\CategoryController::class);
+    Route::resource('categories', App\Http\Controllers\Admin\CategoryController::class);
 
     // Events
-    Route::resource('events', App\Http\Controllers\EventController::class);
+    Route::resource('events', App\Http\Controllers\Admin\EventController::class);
 });
