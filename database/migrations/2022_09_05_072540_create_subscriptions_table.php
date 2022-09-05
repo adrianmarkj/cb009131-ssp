@@ -13,20 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('addresses', function (Blueprint $table) {
+        Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('event_id')->unsigned()->nullable();
             $table->foreign('event_id')->references('id')->on('events');
-            $table->string('phone')->nullable();
-            $table->string('email')->nullable();
-            $table->string('address');
-            $table->string('address_two')->nullable();
-            $table->string('postal_code');
-            $table->string('province');
-            $table->string('latitude')->nullable();
-            $table->string('longitude')->nullable();
-            $table->tinyInteger('sort_order')->default(0);
-            $table->boolean('status')->default(true);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -39,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('addresses');
+        Schema::dropIfExists('subscriptions');
     }
 };
