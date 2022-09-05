@@ -23,9 +23,12 @@ class Event extends Model implements HasMedia
     protected $fillable = [
         'category_id',
         'name',
+        'url',
         'description',
         'address',
         'date',
+        'phone',
+        'email',
         'sort_order',
         'status',
     ];
@@ -37,6 +40,10 @@ class Event extends Model implements HasMedia
     protected $casts = [
 
     ];
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 
     public function registerMediaConversions(Media $media = null): void
     {

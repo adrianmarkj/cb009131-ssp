@@ -17,10 +17,13 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('category_id')->unsigned()->nullable();
             $table->foreign('category_id')->references('id')->on('categories');
-            $table->string('name')->nullable();
+            $table->string('name');
+            $table->string('url')->unique();
             $table->longText('description')->nullable();
             $table->text('address')->nullable();
             $table->date('date')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
             $table->tinyInteger('sort_order')->default(0);
             $table->boolean('status')->default(true);
             $table->timestamps();

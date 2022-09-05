@@ -3,21 +3,21 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
+        @foreach ($events as $event)
+            <div class="col-md-4">
+                <div class="card rounded shadow-sm">
+                    <div class="card-header m-0 p-0">
+                        <img src="{{ $event->getFirstMediaUrl('images', 'thumb') }}" alt="{{ $event->name }}" class="w-100">
+                    </div>
+                    <div class="card-body">
+                        <h2>{{ $event->name }}</h2>
+                        <small>{{ $event->category->title }}</small>
+                        <p>{{ Str::limit($event->description, 100, '...') }}</p>
+                        <a href="{{ route('events.show', $event) }}" class="btn btn-primary">Read More</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        @endforeach
     </div>
 </div>
 @endsection
