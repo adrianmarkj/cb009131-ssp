@@ -37,7 +37,7 @@
 
                     <div class="col-12">
                         <x-form-textarea id="content" name="content" label="Content" type="text"
-                            value="{{ $page->content }}" help="Content" />
+                            value="{{ $page->content }}" help="Content" ckeditor="true" />
                     </div>
 
 
@@ -63,6 +63,11 @@
                             aria-describedby="statusHelp" value="1"
                             {{ old('status', $page->status) ? 'checked' : '' }} />
                         <label for="status" class="form-label ms-2">Status</label>
+                    </div>
+
+                    <div class="col-12">
+                        <x-form-input id="sort_order" name="sort_order" label="Sort Order" type="number"
+                            value="{{ $page->sort_order }}" help="Sort Order of the Pages" />
                     </div>
 
                 </div>

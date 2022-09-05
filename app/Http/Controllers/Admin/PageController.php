@@ -54,6 +54,7 @@ class PageController extends Controller
             "title" => $validated['title'],
             "url" => Str::slug($validated['url']),
             "summary" => $validated['summary'],
+            "content" => $validated['content'],
             "category_id" => $validated['category_id'],
         ]);
 
@@ -75,7 +76,9 @@ class PageController extends Controller
      */
     public function show(Page $page)
     {
-        //
+        return view('admin.pages.show', [
+            'page' => $page,
+        ]);
     }
 
     /**
@@ -107,6 +110,7 @@ class PageController extends Controller
             "title" => $validated['title'],
             "url" => Str::slug($validated['url']),
             "summary" => $validated['summary'],
+            "content" => $validated['content'],
             "category_id" => $validated['category_id'],
         ]);
 
