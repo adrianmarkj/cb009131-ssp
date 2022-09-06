@@ -18,15 +18,12 @@ class DatabaseSeeder extends Seeder
     {
 
         // create an admin
-        \App\Models\Auth\User::create([
+        \App\Models\Auth\Administrator::create([
             'name' => 'Administrator',
             'email' => 'admin@admin.com',
             'email_verified_at' => now(),
             'password' => Hash::make('password'),
             'remember_token' => Str::random(10),
-            'first_name' => 'John',
-            'last_name' => 'Doe',
-            'type' => 'admin',
         ]);
 
         // create an normal user

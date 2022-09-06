@@ -4,9 +4,13 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/admin/login', [AdminLoginController::class, 'showLoginForm'])->name('admin.login');
+
+Route::post('/admin/login', [AdminLoginController::class, 'login'])->name('admin.login');
+
 Route::group([
     'prefix' => 'admin',
-    'middleware' => ['auth', 'type:admin'],
+    'middleware' => ['auth:admin'],
     'as' => 'admin.'
 ], function(){
     // Dashboard
