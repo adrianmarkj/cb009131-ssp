@@ -29,4 +29,7 @@ Route::group([
 
     // Events
     Route::resource('events', App\Http\Controllers\Admin\EventController::class);
+
+    // Subscriptions
+    Route::resource('subscriptions', \App\Http\Controllers\Admin\SubscriptionController::class);
 });

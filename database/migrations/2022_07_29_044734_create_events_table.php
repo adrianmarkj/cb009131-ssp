@@ -21,7 +21,8 @@ return new class extends Migration
             $table->string('url')->unique();
             $table->longText('description')->nullable();
             $table->text('address')->nullable();
-            $table->date('date')->nullable();
+            $table->date('start_date');
+            $table->date('end_date')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->tinyInteger('sort_order')->default(0);

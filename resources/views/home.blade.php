@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row">
         @foreach ($events as $event)
             <div class="col-md-4">
                 <div class="card rounded shadow-sm">
@@ -13,7 +13,7 @@
                         <h2>{{ $event->name }}</h2>
                         <small>{{ $event->category->title }}</small>
                         <p>{{ Str::limit($event->description, 100, '...') }}</p>
-                        <a href="{{ route('events.show', $event) }}" class="btn btn-primary">Read More</a>
+                        <a href="{{ route('events.show', $event->url) }}" class="btn btn-primary">Read More</a>
                     </div>
                 </div>
             </div>

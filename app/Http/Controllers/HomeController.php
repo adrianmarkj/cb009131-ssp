@@ -26,8 +26,8 @@ class HomeController extends Controller
         resolve('cb009131_ssp')->setUrl('home');
 
         //get 10 events ordered by created date
-        $events =  (new Event())->where('status', 1)->orderBy('created_at', 'desc')->take(10);
-
+        // $events =  (new Event())->where('status', 1)->orderBy('created_at', 'desc')->take(10)->get();
+        $events =  (new Event())->where('status', 1)->orderBy('created_at', 'desc')->paginate(10);
         return view('home', [
             'events' => $events
         ]);
