@@ -60,9 +60,6 @@
                                     <a class="dropdown-item" href="{{ route('admin.addresses.index') }}">
                                         Addresses
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('admin.dates.index') }}">
-                                        Dates
-                                    </a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('admin.categories.index') }}">
                                         Categories

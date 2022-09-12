@@ -25,6 +25,7 @@ class User extends Authenticatable
         'first_name',
         'last_name',
         'avatar',
+        'settings',
         'type' // 'admin', 'user'
     ];
 
@@ -36,6 +37,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'settings',
     ];
 
     /**
@@ -45,5 +47,6 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'settings' => 'array',
     ];
 }

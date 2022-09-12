@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Admin\Helpers\ListView;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
@@ -9,15 +10,20 @@ use App\Models\Event;
 
 class EventController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
+    use ListView;
+
+    protected $model = Event::class;
+
+    protected $fields = [
+        'name',
+        'url',
+        'address',
+        'phone',
+        'email',
+        'start_date',
+        'sort_order',
+        'status',
+    ];
 
     /**
      * Show the form for creating a new resource.

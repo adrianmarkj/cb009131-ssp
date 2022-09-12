@@ -15,9 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/dev', function () {
     // $admin = \App\Models\Auth\User::create([
@@ -41,7 +43,8 @@ Route::get('/dev', function () {
 
 Route::get('/event/{url}', App\Http\Controllers\EventController::class)->name('events.show');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/category/{id}', App\Http\Controllers\CategoryController::class)->name('categories.show');
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('{url}', App\Http\Controllers\PageController::class)->name('pages.show');

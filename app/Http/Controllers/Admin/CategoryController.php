@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Admin\Helpers\ListView;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
@@ -9,21 +10,9 @@ use App\Models\Category;
 
 class CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $categories = (new Category())
-        ->newQuery()
-        ->paginate(10);
+    use ListView;
 
-        return view('admin.categories.index', [
-            'categories' => $categories
-        ]);
-    }
+    protected $model =  Category::class;
 
     /**
      * Show the form for creating a new resource.

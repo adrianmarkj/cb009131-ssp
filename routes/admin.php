@@ -27,9 +27,6 @@ Route::group([
     // Addresses
     Route::resource('addresses', App\Http\Controllers\Admin\AddressController::class);
 
-    // Date
-    Route::resource('dates', App\Http\Controllers\Admin\DateController::class);
-
     // Categories
     Route::resource('categories', App\Http\Controllers\Admin\CategoryController::class);
 

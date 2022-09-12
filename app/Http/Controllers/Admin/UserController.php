@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Admin\Helpers\ListView;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Http\Request;
@@ -11,21 +12,14 @@ use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $users = (new User())
-        ->newQuery()
-        ->paginate(10);
+    use ListView;
 
-        return view('admin.users.index', [
-            'users' => $users
-        ]);
-    }
+    protected $model = User::class;
+
+    protected $fields = [
+        'name',
+        'email',
+    ];
 
     /**
      * Show the form for creating a new resource.
