@@ -5,7 +5,7 @@
     <div class="row">
 
         <div class="col-2 bg-white rounded shadow-sm pt-2">
-            <h5>Categories</h5>
+            <h4>Categories</h4>
             <ul class="list-unstyled">
                 @foreach ($categories as $category)
                     <li class="p-2 rounded {{ request()->get('cid') == $category->id ? 'bg-info' : '' }}">
