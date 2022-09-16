@@ -33,7 +33,6 @@ class StoreEventRequest extends FormRequest
             'end_date' => 'nullable',
             'phone' => 'required',
             'email' => 'required',
-            'image' => 'required',
         ];
     }
 }

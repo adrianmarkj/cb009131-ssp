@@ -37,6 +37,11 @@
                     </div>
                 </div>
 
+                {{-- <div class="col-12">
+                    <x-form-input id="avatar" name="avatar" label="Profile Image" type="file" value="{{ $model->image }}"
+                        help="Please upload an image with the resolution of 180px X 180px" />
+                </div> --}}
+
                 <div class="col-12">
                     <x-form-textarea id="description" name="description" label="Description" type="text"
                         value="{{ $model->description }}" help="Description" ckeditor="true" />
