@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    <h2>Archive</h2>
     <div class="row">
 
         <div class="col-2 bg-white rounded shadow-sm pt-2">

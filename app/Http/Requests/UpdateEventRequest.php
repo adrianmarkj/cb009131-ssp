@@ -30,7 +30,7 @@ class UpdateEventRequest extends FormRequest
             'description' => 'required',
             'address' => 'required',
             'start_date' => 'required',
-            'end_date' => 'nullable',
+            'end_date' => 'required',
             'phone' => 'required',
             'email' => 'required',
         ];

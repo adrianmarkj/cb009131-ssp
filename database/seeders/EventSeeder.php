@@ -45,7 +45,7 @@ class EventSeeder extends Seeder
                 ",
                 'address' => 'Hilton, Colombo 07',
                 'start_date' => '2023-11-01',
-                'end_date' => null,
+                'end_date' => '2022-08-01',
                 'phone' => '0112 456 200',
                 'email' => 'hilton@gmail.com',
                 'image' => 'https://www.sundayobserver.lk/sites/default/files/styles/large/public/news/2019/10/18/z_p35-Original.jpg?itok=ZznafVAO',

@@ -47,4 +47,6 @@ Route::get('/category/{id}', App\Http\Controllers\CategoryController::class)->na
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/archive', [App\Http\Controllers\ArchiveController::class, 'index'])->name('archive');
+
 Route::get('{url}', App\Http\Controllers\PageController::class)->name('pages.show');

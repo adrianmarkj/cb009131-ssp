@@ -22,7 +22,7 @@ return new class extends Migration
             $table->longText('description')->nullable();
             $table->text('address')->nullable();
             $table->date('start_date');
-            $table->date('end_date')->nullable();
+            $table->date('end_date');
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->tinyInteger('sort_order')->default(0);
