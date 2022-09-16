@@ -48,6 +48,11 @@ class EventController extends Controller
             ->newQuery()
             ->create($request->all());
 
+        // check if the request has categories and sync them
+        if ($request->has('categories')) {
+            $model->categories()->sync($request->categories);
+        }
+
         // check if the model was created
         if (!$model) {
             abort(500);
@@ -100,6 +105,11 @@ class EventController extends Controller
 
         // update the model
         $event->update($request->all());
+
+        // check if the request has categories and sync them
+        if ($request->has('categories')) {
+            $event->categories()->sync($request->categories);
+        }
 
         // redirect to the index page
         return redirect()
