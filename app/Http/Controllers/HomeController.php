@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Event;
 
 class HomeController extends Controller
@@ -27,9 +28,27 @@ class HomeController extends Controller
 
         //get 10 events ordered by created date
         // $events =  (new Event())->where('status', 1)->orderBy('created_at', 'desc')->take(10)->get();
-        $events =  (new Event())->where('status', 1)->orderBy('created_at', 'desc')->paginate(10);
+        $events =  (new Event())->newQuery()->where(function ($query){
+            $query->where('status', 1);
+        })->with(['categories', 'media']);
+
+        // check if the request has a cid param and get the hotels by the category id
+        if (request()->has('cid')) {
+
+            $events = $events
+                ->whereHas('categories', function ($query) {
+                    $query->where('category_id', request()->get('cid'));
+                });
+        }
+
+        $events = $events
+            ->orderBy('created_at', 'desc')
+            ->take(10)
+            ->get();
+
         return view('home', [
-            'events' => $events
+            'events' => $events,
+            'categories' => (new Category())->newQuery()->where('status', 1)->get(),
         ]);
     }
 }
