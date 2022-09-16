@@ -6,6 +6,7 @@ use App\Models\Event;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class EventSeeder extends Seeder
 {
@@ -21,7 +22,7 @@ class EventSeeder extends Seeder
             [
                 'category_id' => 1,
                 'name' => 'Eat Street',
-                'description' => 'The highly popular, much-awaited open-air street food festival, EAT STREET CMB 2023, will tantalize Colombo’s tastebuds on Saturday the 26th and Sunday the 27th of March 2023, from 11.am to 11pm, at Green Path Colombo (Ananda Coomaraswamy Mawatha, Colombo 07). The festival has built a reputation as Colombo’s top street food festival, amongst Colombo’s foodies and everyone else looking to have fun and enjoy good food. Next year, the title sponsor of the event is Coca-Cola, and the Hon. Prasanna Ranatunga – Minister of Tourism is expected to be the Chief Guest at the festival. EAT STREET CMB 2023 is also endorsed by the Sri Lanka Tourism Promotion Bureau.',
+                'description' => "The highly popular, much-awaited open-air street food festival, EAT STREET CMB 2023, will tantalize Colombo’s tastebuds on Saturday the 26th and Sunday the 27th of March 2023, from 11.am to 11pm, at Green Path Colombo (Ananda Coomaraswamy Mawatha, Colombo 07). The festival has built a reputation as Colombo’s top street food festival, amongst Colombo’s foodies and everyone else looking to have fun and enjoy good food. Next year, the title sponsor of the event is Coca-Cola, and the Hon. Prasanna Ranatunga – Minister of Tourism is expected to be the Chief Guest at the festival. EAT STREET CMB 2023 is also endorsed by the Sri Lanka Tourism Promotion Bureau.",
                 'address' => 'Green Path, Ananda Coomaraswamy Mawatha, Colombo 07',
                 'start_date' => '2023-03-26',
                 'end_date' => '2023-03-27',
@@ -66,5 +67,32 @@ class EventSeeder extends Seeder
             ]);
             $event_model->addMediaFromUrl($event['image'])->toMediaCollection('images');
         }
+
+        DB::table('category_event')->insert(
+            array([
+                'category_id' => 3,
+                'event_id' => 1,
+            ],
+            [
+                'category_id' => 5,
+                'event_id' => 1,
+            ],
+            [
+                'category_id' => 7,
+                'event_id' => 1,
+            ],
+            [
+                'category_id' => 3,
+                'event_id' => 2,
+            ],
+            [
+                'category_id' => 5,
+                'event_id' => 2,
+            ],
+            [
+                'category_id' => 7,
+                'event_id' => 2,
+            ])
+        );
     }
 }
