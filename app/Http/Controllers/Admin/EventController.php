@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
 use App\Models\Event;
+use App\Models\Category;
+use Illuminate\Support\Str;
 
 class EventController extends Controller
 {
@@ -33,7 +35,28 @@ class EventController extends Controller
      */
     public function store(StoreEventRequest $request)
     {
-        //
+        // update the url attribute with the slug
+        $request->merge([
+            'url' => Str::slug($request->name)
+        ]);
+
+        // get the model
+        $model = $this->getModel();
+
+        // create a new instance of the model
+        $model = $model
+            ->newQuery()
+            ->create($request->all());
+
+        // check if the model was created
+        if (!$model) {
+            abort(500);
+        }
+
+        // redirect to the index page
+        return redirect()
+            ->route('admin.events.index')
+            ->with('success', 'Event Created Successfully');
     }
 
     /**
@@ -55,7 +78,10 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        //
+        return view('admin.events.form', [
+            'model' => $event,
+            'categories' => (new Category())->where('status', 1)->get()
+        ]);
     }
 
     /**
@@ -67,7 +93,18 @@ class EventController extends Controller
      */
     public function update(UpdateEventRequest $request, Event $event)
     {
-        //
+        // update the url attribute with the slug
+        $request->merge([
+            'url' => Str::slug($request->name)
+        ]);
+
+        // update the model
+        $event->update($request->all());
+
+        // redirect to the index page
+        return redirect()
+            ->route('admin.events.index')
+            ->with('success', 'Event Updated Successfully');
     }
 
     /**
@@ -78,6 +115,10 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        $event->delete();
+
+         return redirect()
+             ->route('admin.events.index')
+             ->with('success', 'Event Deleted Successfully');
     }
 }
