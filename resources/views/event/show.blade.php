@@ -23,6 +23,9 @@
                             <li class="list-group-item">Telephone : {{ $event->phone }}</li>
                             <li class="list-group-item">Email : {{ $event->email }}</li>
                         </ul>
+                        <a href="{{ route('reservation.show', $event->id) }}" class="btn btn-success">
+                            Book Now
+                        </a>
                     </div>
                 </div>
             </div>
