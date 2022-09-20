@@ -15,8 +15,7 @@ class EventController extends Controller
      */
     public function __invoke(Request $request, string $url)
     {
-        //
-        $event = (new Event())->newQuery()->where('url', $url)->first();
+        $event = (new Event())->newQuery()->where('url', $url)->with(['media', 'category'])->first();
 
         if (!$event) {
             return abort(404);
