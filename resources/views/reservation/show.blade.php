@@ -12,7 +12,7 @@
                     </div>
 
                     <div class="card-body">
-                        <img src="{{ $event>getFirstMediaUrl('images') }}" class="img-fluid mb-3"
+                        <img src="{{ $event->getFirstMediaUrl('images') }}" class="img-fluid mb-3"
                             alt="{{ $event->name }}">
                         <div>
                             {!! $event->description !!}
@@ -29,7 +29,7 @@
                                 </ul>
                             </div>
                             <div class="col-6">
-                                <form action="{{ route('reservation.reserve', $package->id) }}" method="POST">
+                                <form action="{{ route('reservation.reserve', $event->id) }}" method="POST">
                                     @csrf
 
                                     <h3>Register Now</h3>

@@ -29,7 +29,7 @@ class ReservationController extends Controller
         // calculate the total price
         $total_price = $event->price_per_person * $request->number_of_people;
 
-        // create the booking
+        // create the subscription
         $subscription = (new Subscription())->create([
             'event_id' => $request->event_id,
             'user_id' => $request->user_id,
