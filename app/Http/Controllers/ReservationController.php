@@ -30,13 +30,15 @@ class ReservationController extends Controller
         $total_price = $event->price_per_person * $request->number_of_people;
 
         // create the booking
-        (new Subscription())->create([
+        $subscription = (new Subscription())->create([
             'event_id' => $request->event_id,
             'user_id' => $request->user_id,
             'number_of_people' => $request->number_of_people,
             'total_price' => $total_price,
             'status' => 1,
         ]);
+
+        auth()->user()->notify((new \App\Notifications\ReservationSuccess($subscription)));
 
         return redirect()->route('reservation.index');
     }
