@@ -85,6 +85,11 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+                        @auth('web')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('reservation.index') }}">My Subscriptions</a>
+                            </li>
+                        @endauth
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))

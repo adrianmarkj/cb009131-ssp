@@ -20,9 +20,6 @@
                                 <td>{{ $subscription->event->name }}</td>
                                 <td>LKR {{ number_format($subscription->total_price, 2) }}</td>
                                 <td>{{ $subscription->status }}</td>
-                                <td>
-                                    {{-- <a href="{{ route('reservation.show', $booking->id) }}" class="btn btn-primary">View</a> --}}
-                                </td>
                             </tr>
                         @endforeach
                     </tbody>
