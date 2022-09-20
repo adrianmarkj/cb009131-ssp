@@ -48,8 +48,16 @@ Route::get('/category/{id}', App\Http\Controllers\CategoryController::class)->na
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth:web'])
- ->get('/reservation/{event}', App\Http\Controllers\ReservationController::class)
+ ->get('/reservation/{event}', [App\Http\Controllers\ReservationController::class, 'show'])
  ->name('reservation.show');
+
+Route::middleware(['auth:web'])
+ ->post('/reservation/{event}', [App\Http\Controllers\ReservationController::class, 'reserve'])
+ ->name('reservation.reserve');
+
+Route::middleware(['auth:web'])
+ ->get('/reservations', [App\Http\Controllers\ReservationController::class, 'index'])
+ ->name('reservation.index');
 
 Route::get('/archive', [App\Http\Controllers\ArchiveController::class, 'index'])->name('archive');
 

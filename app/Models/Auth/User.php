@@ -2,6 +2,7 @@
 
 namespace App\Models\Auth;
 
+use App\Models\Finance\Subscription;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -49,4 +50,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'settings' => 'array',
     ];
+
+    public function subscriptions()
+    {
+        return $this->hasMany(Subscription::class);
+    }
 }
