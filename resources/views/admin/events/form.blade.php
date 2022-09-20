@@ -72,6 +72,11 @@
                 </div>
 
                 <div class="col-12">
+                    <x-form-textarea id="price_per_person" name="price_per_person" label="Price Per Person" type="number"
+                        value="{{ $model->price_per_person }}" help="Price Per Person" />
+                </div>
+
+                <div class="col-12">
                     <x-form-textarea id="address" name="address" label="Address" type="text"
                         value="{{ $model->address }}" help="Address" />
                 </div>

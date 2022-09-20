@@ -26,6 +26,7 @@ class EventSeeder extends Seeder
                 'address' => 'Green Path, Ananda Coomaraswamy Mawatha, Colombo 07',
                 'start_date' => '2023-03-26',
                 'end_date' => '2023-03-27',
+                'price_per_person' => 3000,
                 'phone' => '0112 397 397',
                 'email' => 'eatstreetcmb@gmail.com',
                 'image' => 'https://island.lk/wp-content/uploads/2022/03/EAT-STREET-CMB.jpg',
@@ -47,6 +48,7 @@ class EventSeeder extends Seeder
                 'address' => 'Hilton, Colombo 07',
                 'start_date' => '2023-11-01',
                 'end_date' => '2022-08-01',
+                'price_per_person' => 6000,
                 'phone' => '0112 456 200',
                 'email' => 'hilton@gmail.com',
                 'image' => 'https://www.sundayobserver.lk/sites/default/files/styles/large/public/news/2019/10/18/z_p35-Original.jpg?itok=ZznafVAO',
@@ -62,6 +64,7 @@ class EventSeeder extends Seeder
                 'address' => $event['address'],
                 'start_date' => $event['start_date'],
                 'end_date' => $event['end_date'],
+                'price_per_person' => $event['price_per_person'],
                 'phone' => $event['phone'],
                 'email' => $event['email'],
             ]);

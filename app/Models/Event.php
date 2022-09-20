@@ -28,6 +28,7 @@ class Event extends Model implements HasMedia
         'address',
         'start_date',
         'end_date',
+        'price_per_person',
         'phone',
         'email',
         'sort_order',

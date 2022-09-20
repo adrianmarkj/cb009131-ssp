@@ -23,6 +23,7 @@ return new class extends Migration
             $table->text('address')->nullable();
             $table->date('start_date');
             $table->date('end_date');
+            $table->float('price_per_person', 10, 2)->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->tinyInteger('sort_order')->default(0);

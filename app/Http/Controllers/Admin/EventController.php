@@ -23,6 +23,7 @@ class EventController extends Controller
         'phone',
         'email',
         'start_date',
+        'price_per_person',
         'sort_order',
         'status',
     ];
