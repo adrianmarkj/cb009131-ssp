@@ -13,7 +13,7 @@ class StoreSubscriptionRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class StoreSubscriptionRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'event_id' => 'required',
+            'user_id' => 'required',
+            'number_of_people' => 'required',
         ];
     }
 }

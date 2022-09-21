@@ -12,8 +12,36 @@
                 @csrf
 
                 <div class="col">
-                    <h4>Form Details</h4>
+                    <h4>Subscriptions Form</h4>
                     <hr>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <x-form-select id="event_id" name="event_id" label="Event"
+                            value="{{ $model->event_id }}" placeholder="Select Event"
+                            :options="$events->pluck('name', 'id')" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <x-form-select id="user_id" name="user_id" label="User"
+                            value="{{ $model->user_id }}" placeholder="Select User"
+                            :options="$users->pluck('name', 'id')" />
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <x-form-input id="number_of_people" name="number_of_people" label="Number of People" type="number"
+                        value="{{ $model->number_of_people }}" help="" required min="0" max="20"/>
+                </div>
+
+                <div class="col-12">
+                    <input type="checkbox" class="form-check-input" id="status" name="status"
+                        aria-describedby="statusHelp" value="1"
+                        {{ old('status', $model->status) ? 'checked' : '' }} />
+                    <label for="status" class="form-label ms-2">Status</label>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Save</button>

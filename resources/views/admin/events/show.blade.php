@@ -19,7 +19,7 @@
                             @else
                                 <li class="list-group-item">Date : {{ $event->start_date }}</li>
                             @endif
-                            <li class="list-group-item">Price Per Person : {{ $event->price_per_person }}</li>
+                            <li class="list-group-item">Price Per Person : LKR {{ number_format($event->price_per_person, 2) }}</li>
                             <li class="list-group-item">Address : {{ $event->address }}</li>
                             <li class="list-group-item">Telephone : {{ $event->phone }}</li>
                             <li class="list-group-item">Email : {{ $event->email }}</li>

@@ -40,11 +40,7 @@ class HomeController extends Controller
                 });
         }
 
-        // $events = $events
-        //     ->orderBy('start_date', 'asc')
-        //     ->take(10)
-        //     ->get();
-
+        //get the mose popular events of all time by page view count descending order
         $events = Event::popularAllTime()->get();
 
         return view('home', [

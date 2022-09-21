@@ -38,33 +38,21 @@
                     @php
                         $route = strtolower(Str::plural(class_basename($model)));
                     @endphp
-                    @if (class_basename($model)=='Subscription')
-                        <form id="model-delete-{{ $model->id }}" action="{{ route('admin.' . $route . '.destroy', $model->id) }}" method="POST" class="d-inline">
-                            @csrf
-                            @method('DELETE')
-                            <button type="button"
-                                    onclick="confirm('Are you sure?') ? document.getElementById('model-delete-{{ $model->id }}').submit() : ''"
-                                    class="btn btn-sm btn-danger">
-                                Delete
-                            </button>
-                        </form>
-                    @else
-                        <a href="{{ route('admin.' . $route . '.show', $model->id) }}" class="btn btn-sm btn-success">
-                            View
-                        </a>
-                        <a href="{{ route('admin.' . $route . '.edit', $model->id) }}" class="btn btn-sm btn-primary">
-                            Edit
-                        </a>
-                        <form id="model-delete-{{ $model->id }}" action="{{ route('admin.' . $route . '.destroy', $model->id) }}" method="POST" class="d-inline">
-                            @csrf
-                            @method('DELETE')
-                            <button type="button"
-                                    onclick="confirm('Are you sure?') ? document.getElementById('model-delete-{{ $model->id }}').submit() : ''"
-                                    class="btn btn-sm btn-danger">
-                                Delete
-                            </button>
-                        </form>
-                    @endif
+                    <a href="{{ route('admin.' . $route . '.show', $model->id) }}" class="btn btn-sm btn-success">
+                        View
+                    </a>
+                    <a href="{{ route('admin.' . $route . '.edit', $model->id) }}" class="btn btn-sm btn-primary">
+                        Edit
+                    </a>
+                    <form id="model-delete-{{ $model->id }}" action="{{ route('admin.' . $route . '.destroy', $model->id) }}" method="POST" class="d-inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="button"
+                                onclick="confirm('Are you sure?') ? document.getElementById('model-delete-{{ $model->id }}').submit() : ''"
+                                class="btn btn-sm btn-danger">
+                            Delete
+                        </button>
+                    </form>
                 </td>
               </tr>
             @endforeach

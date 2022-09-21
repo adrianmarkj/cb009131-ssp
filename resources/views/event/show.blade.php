@@ -7,6 +7,16 @@
                 <div class="card">
                     <div class="card-header">
                         <h1>{{ $event->name }}</h1>
+                        @if ($count==null)
+                            <h5>Number of Views: 0</h5>
+                        @else
+                            <h5>Number of Views: {{ $count }}</h5>
+                        @endif
+                        @if ($subscriptions==null)
+                            <h5>Number of Subscriptions: 0</h5>
+                        @else
+                            <h5>Number of Subscriptions: {{ $subscriptions }}</h5>
+                        @endif
                     </div>
                     <div class="card-body">
                         <img src="{{ $event->getFirstMediaUrl('images') }}" class="img-fluid mb-3 w-100" alt="{{ $event->name }}">
@@ -19,7 +29,7 @@
                             @else
                                 <li class="list-group-item">Date : {{ $event->start_date }}</li>
                             @endif
-                            <li class="list-group-item">Price Per Person : {{ $event->price_per_person }}</li>
+                            <li class="list-group-item">Price Per Person : LKR {{ number_format($event->price_per_person, 2) }}</li>
                             <li class="list-group-item">Address : {{ $event->address }}</li>
                             <li class="list-group-item">Telephone : {{ $event->phone }}</li>
                             <li class="list-group-item">Email : {{ $event->email }}</li>

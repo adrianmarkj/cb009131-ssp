@@ -18,6 +18,7 @@
         </div>
 
         <div class="col-10">
+            <h4>Most Popular Events</h4>
             <div class="row">
                 @if ($events && $events->count())
                     @foreach ($events as $event)

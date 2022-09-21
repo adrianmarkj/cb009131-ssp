@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin\Helpers;
 
 use App\Models\Category;
+use App\Models\Event;
+use App\Models\Auth\User;
 use Illuminate\Support\Str;
 
 trait ListView {
@@ -53,6 +55,8 @@ trait ListView {
         return view('admin.' . $name . '.form', [
             'model' => $model,
             'categories' => (new Category())->where('status', 1)->get(),
+            'events' => (new Event())->where('status', 1)->get(),
+            'users' => (new User())->get()
         ]);
     }
 

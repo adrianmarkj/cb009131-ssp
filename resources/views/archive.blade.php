@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="container">
-    <h2>Archive</h2>
     <div class="row">
 
         <div class="col-2 bg-white rounded shadow-sm pt-2">
@@ -19,6 +18,7 @@
         </div>
 
         <div class="col-10">
+            <h4>Archive</h4>
             <div class="row">
                 @if ($events && $events->count())
                     @foreach ($events as $event)
