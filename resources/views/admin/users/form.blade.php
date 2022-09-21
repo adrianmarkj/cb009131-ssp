@@ -53,7 +53,7 @@
                     </div>
                 </div>
 
-                <x-form-select id="type" name="type" label="Type" value="{{ $user->type }}" help="User Type" placeholder="Select Type" :options="['admin' => 'admin', 'user' => 'user']"/>
+                <x-form-select id="type" name="type" label="Type" value="{{ $user->type }}" help="User Type" placeholder="Select Type" :options="[ 'user' => 'user']"/>
 
                 </select>
                 <button type="submit" class="btn btn-primary">Save</button>

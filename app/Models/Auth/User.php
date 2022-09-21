@@ -31,7 +31,7 @@ class User extends Authenticatable implements HasMedia
         'last_name',
         'avatar',
         'settings',
-        'type' // 'admin', 'user'
+        'type' // 'user'
     ];
 
     /**
