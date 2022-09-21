@@ -40,10 +40,12 @@ class HomeController extends Controller
                 });
         }
 
-        $events = $events
-            ->orderBy('start_date', 'asc')
-            ->take(10)
-            ->get();
+        // $events = $events
+        //     ->orderBy('start_date', 'asc')
+        //     ->take(10)
+        //     ->get();
+
+        $events = Event::popularAllTime()->get();
 
         return view('home', [
             'events' => $events,

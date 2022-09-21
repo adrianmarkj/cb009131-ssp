@@ -21,6 +21,8 @@ class EventController extends Controller
             return abort(404);
         }
 
+        $event->visit()->hourlyIntervals()->withSession();
+
         return view('event.show', [
             'event' => $event
         ]);
