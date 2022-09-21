@@ -67,6 +67,7 @@ class SubscriptionController extends Controller
      */
     public function destroy(Subscription $subscription)
     {
-        //
+        $subscription->delete();
+        return redirect()->route('admin.subscriptions.index');
     }
 }
