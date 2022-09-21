@@ -44,32 +44,30 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <small class="d-block ps-3 fw-bold">Admin Panel</small>
                                     <a class="dropdown-item" href="{{ route('admin.dashboard') }}">
                                         Dashboard
                                     </a>
                                     <div class="dropdown-divider"></div>
-                                    <small class="d-block ps-2">Authentication</small>
+                                    <small class="d-block ps-3 fw-bold">Authentication</small>
                                     <a class="dropdown-item" href="{{ route('admin.users.index') }}">
                                         Users
                                     </a>
                                     <div class="dropdown-divider"></div>
-                                    <small class="d-block ps-2">Content</small>
+                                    <small class="d-block ps-3 fw-bold">Content</small>
                                     <a class="dropdown-item" href="{{ route('admin.pages.index') }}">
                                         Pages
                                     </a>
                                     <div class="dropdown-divider"></div>
-                                    <small class="d-block ps-2">Event</small>
-                                    <a class="dropdown-item" href="{{ route('admin.addresses.index') }}">
-                                        Addresses
+                                    <small class="d-block ps-3 fw-bold">Event</small>
+                                    <a class="dropdown-item" href="{{ route('admin.events.index') }}">
+                                        Events
                                     </a>
-                                    <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('admin.categories.index') }}">
                                         Categories
                                     </a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{ route('admin.events.index') }}">
-                                        Events
-                                    </a>
+                                    <small class="d-block ps-3 fw-bold">Finance</small>
                                     <a class="dropdown-item" href="{{ route('admin.subscriptions.index') }}">
                                         Subscriptions
                                     </a>
