@@ -27,6 +27,8 @@
                         @endif
                         @elseif ($column === 'url')
                             <a href="{{ route(Str::plural(strtolower(class_basename($model))).'.show', $model->{$column}) }}" target="_blank">{{ $model->$column }}</a>
+                        @elseif ($column === 'content')
+                        {{ strip_tags($model->{$column}) }}
                         @else
                         {{ $model->{$column} }}
                         @endif

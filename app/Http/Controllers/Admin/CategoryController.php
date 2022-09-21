@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -22,7 +23,28 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        //
+        // update the url attribute with the slug
+        $request->merge([
+            'url' => Str::slug($request->name)
+        ]);
+
+        // get the model
+        $model = $this->getModel();
+
+        // create a new instance of the model
+        $model = $model
+            ->newQuery()
+            ->create($request->all());
+
+        // check if the model was created
+        if (!$model) {
+            abort(500);
+        }
+
+        // redirect to the index page
+        return redirect()
+            ->route('admin.categories.index')
+            ->with('success', 'Category Created Successfully');
     }
 
     /**
@@ -33,7 +55,9 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        return view('admin.categories.show', [
+            'category' => $category,
+        ]);
     }
 
     /**
@@ -44,7 +68,9 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.categories.form', [
+            'model' => $category,
+        ]);
     }
 
     /**
@@ -56,7 +82,18 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+        // update the url attribute with the slug
+        $request->merge([
+            'url' => Str::slug($request->name)
+        ]);
+
+        // update the model
+        $category->update($request->all());
+
+        // redirect to the index page
+        return redirect()
+            ->route('admin.categories.index')
+            ->with('success', 'Category Updated Successfully');
     }
 
     /**
