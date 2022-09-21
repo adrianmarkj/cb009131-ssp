@@ -42,13 +42,12 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     Administration
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <small class="d-block ps-3 fw-bold">Admin Panel</small>
+                                    {{-- <small class="d-block ps-3 fw-bold">Admin Panel</small>
                                     <a class="dropdown-item" href="{{ route('admin.dashboard') }}">
                                         Dashboard
                                     </a>
-                                    <div class="dropdown-divider"></div>
+                                    <div class="dropdown-divider"></div> --}}
                                     <small class="d-block ps-3 fw-bold">Authentication</small>
                                     <a class="dropdown-item" href="{{ route('admin.users.index') }}">
                                         Users
