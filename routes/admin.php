@@ -17,7 +17,8 @@ Route::group([
     'as' => 'admin.'
 ], function(){
     // Dashboard
-    Route::get('dashboard', [AdminController::class, 'index'])->name('dashboard');
+    // Route::get('dashboard', [AdminController::class, 'index'])->name('dashboard');
+    Route::resource('administrators', AdminController::class);
 
     // User
     Route::resource('users', UserController::class);

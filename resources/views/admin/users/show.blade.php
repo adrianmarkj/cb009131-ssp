@@ -33,10 +33,6 @@
                                         <td>Last Name</td>
                                         <td>{{ $user->last_name }}</td>
                                     </tr>
-                                    <tr>
-                                        <td>Type</td>
-                                        <td>{{ $user->type }}</td>
-                                    </tr>
                                 </tbody>
                             </table>
                             <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-primary">Edit</a>
