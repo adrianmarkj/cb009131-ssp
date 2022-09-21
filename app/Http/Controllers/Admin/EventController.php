@@ -54,6 +54,11 @@ class EventController extends Controller
             $model->categories()->sync($request->categories);
         }
 
+        // check if the request has images and add them
+        if ($request->has('images')) {
+            $model->addMediaFromRequest('images')->toMediaCollection('images');
+        }
+
         // check if the model was created
         if (!$model) {
             abort(500);
@@ -110,6 +115,12 @@ class EventController extends Controller
         // check if the request has categories and sync them
         if ($request->has('categories')) {
             $event->categories()->sync($request->categories);
+        }
+
+        // check if the request has images and add them
+        if ($request->has('images')) {
+            $event->clearMediaCollection('images');
+            $event->addMediaFromRequest('images')->toMediaCollection('images');
         }
 
         // redirect to the index page

@@ -35,9 +35,9 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    @auth('admin')
-                        <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav me-auto">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav me-auto">
+                        @auth('admin')
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     Administration
@@ -75,19 +75,19 @@
                                     </a>
                                 </div>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('archive') }}">
-                                    Archive
-                                </a>
-                            </li>
-                        </ul>
-                    @endauth
+                        @endauth
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('archive') }}">
+                                Archive
+                            </a>
+                        </li>
+                    </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         @auth('web')
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('reservation.index') }}">My Subscriptions</a>
+                                <a class="nav-link" href="{{ route('reservation.index') }}">My Events</a>
                             </li>
                         @endauth
                         <!-- Authentication Links -->

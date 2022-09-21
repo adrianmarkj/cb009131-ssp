@@ -26,8 +26,7 @@ class HomeController extends Controller
     {
         resolve('cb009131_ssp')->setUrl('home');
 
-        //get 10 events ordered by created date
-        // $events =  (new Event())->where('status', 1)->orderBy('created_at', 'desc')->take(10)->get();
+        //get 10 events ordered by ascending start date
         $events =  (new Event())->newQuery()->where(function ($query){
             $query->where('status', 1);
         })->with(['categories', 'media']);
@@ -42,7 +41,7 @@ class HomeController extends Controller
         }
 
         $events = $events
-            ->orderBy('created_at', 'desc')
+            ->orderBy('start_date', 'asc')
             ->take(10)
             ->get();
 

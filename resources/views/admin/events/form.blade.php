@@ -61,10 +61,10 @@
                     </div>
                 </div>
 
-                {{-- <div class="col-12">
-                    <x-form-input id="avatar" name="avatar" label="Profile Image" type="file" value="{{ $model->image }}"
-                        help="Please upload an image with the resolution of 180px X 180px" />
-                </div> --}}
+                <div class="col-12">
+                    <x-form-input id="images" name="images" label="Event Image" type="file" value="{{ $model->getFirstMediaUrl('images') }}"
+                        help="Please upload an image with a minimum resolution of 640px X 640px" />
+                </div>
 
                 <div class="col-12">
                     <x-form-textarea id="description" name="description" label="Description" type="text"

@@ -31,7 +31,7 @@
                                     <h2>{{ $event->name }}</h2>
                                     <small>{{ $event->category->title }}</small>
                                     <p>{!! Str::limit(strip_tags($event->description), 100, '...') !!}</p>
-                                    <a href="{{ route('events.show', $event->url) }}" class="btn btn-primary">Read More</a>
+                                    {{-- <a href="{{ route('events.show', $event->url) }}" class="btn btn-primary">Read More</a> --}}
                                     <div class="mt-3">
                                         @foreach ($event->categories as $category)
                                             <a href="{{ route('home') }}?cid={{ $category->id }}">
