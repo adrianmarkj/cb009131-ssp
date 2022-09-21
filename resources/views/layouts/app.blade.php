@@ -160,7 +160,7 @@
                   <ul class="nav flex-column">
                     <li class="nav-item mb-2"><a href="{{ route('home') }}" class="nav-link p-0 text-muted">Home</a></li>
                     <li class="nav-item mb-2"><a href="{{ route('archive') }}" class="nav-link p-0 text-muted">Archive</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About Us</a></li>
+                    <li class="nav-item mb-2"><a href="{{ route('pages.show', 'about-us') }}" class="nav-link p-0 text-muted">About Us</a></li>
                   </ul>
                 </div>
 

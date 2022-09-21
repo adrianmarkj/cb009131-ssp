@@ -43,6 +43,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CategorySeeder::class,
             EventSeeder::class,
+            PageSeeder::class,
         ]);
     }
 }
