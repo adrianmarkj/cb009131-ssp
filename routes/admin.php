@@ -25,9 +25,6 @@ Route::group([
     // Pages
     Route::resource('pages', App\Http\Controllers\Admin\PageController::class);
 
-    // Addresses
-    Route::resource('addresses', App\Http\Controllers\Admin\AddressController::class);
-
     // Categories
     Route::resource('categories', App\Http\Controllers\Admin\CategoryController::class);
 
