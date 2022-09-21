@@ -36,7 +36,6 @@ class DatabaseSeeder extends Seeder
             'first_name' => 'John',
             'last_name' => 'Doe',
             'settings' => [],
-            'type' => 'user',
         ]);
 
         \App\Models\Auth\User::factory(10)->create();
