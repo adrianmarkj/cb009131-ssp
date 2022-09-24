@@ -23,7 +23,7 @@
                         <br>
                         {!! $event->description !!}
                         <ul class="list-group list-group-flush mt-3">
-                            @if(isset($event->end_date))
+                            @if($event->end_date!=$event->start_date)
                                 <li class="list-group-item">Start Date : {{ $event->start_date }}</li>
                                 <li class="list-group-item">End Date : {{ $event->end_date }}</li>
                             @else

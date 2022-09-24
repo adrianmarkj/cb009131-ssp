@@ -9,7 +9,7 @@
             <ul class="list-unstyled">
                 @foreach ($categories as $category)
                     <li class="p-2 rounded {{ request()->get('cid') == $category->id ? 'bg-info' : '' }}">
-                        <a href="{{ route('home') }}?cid={{ $category->id }}" class="text-black text-decoration-none">
+                        <a href="{{ route('archive') }}?cid={{ $category->id }}" class="text-black text-decoration-none">
                             {{ $category->title }}
                         </a>
                     </li>
@@ -34,7 +34,7 @@
                                     {{-- <a href="{{ route('events.show', $event->url) }}" class="btn btn-primary">Read More</a> --}}
                                     <div class="mt-3">
                                         @foreach ($event->categories as $category)
-                                            <a href="{{ route('home') }}?cid={{ $category->id }}">
+                                            <a href="{{ route('archive') }}?cid={{ $category->id }}">
                                                 <span class="badge bg-secondary">{{ $category->title }}</span>
                                             </a>
                                         @endforeach

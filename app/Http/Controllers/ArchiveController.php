@@ -17,8 +17,6 @@ class ArchiveController extends Controller
     {
         resolve('cb009131_ssp')->setUrl('archive');
 
-        //get 10 events ordered by created date
-        // $events =  (new Event())->whereDate('end_date', '<', date('Y-m-d'))->orderBy('created_at', 'desc')->take(10)->get();
         $events =  (new Event())->newQuery()->where(function ($query){
             $query->whereDate('end_date', '<', date('Y-m-d'));
         })->with(['categories', 'media']);
@@ -32,7 +30,7 @@ class ArchiveController extends Controller
         }
 
         $events = $events
-            ->orderBy('created_at', 'desc')
+            ->orderBy('start_date', 'desc')
             ->take(10)
             ->get();
 

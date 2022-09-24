@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Event;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -26,8 +28,8 @@ class HomeController extends Controller
     {
         resolve('cb009131_ssp')->setUrl('home');
 
-        //get 10 events ordered by ascending start date
-        $events =  (new Event())->newQuery()->where(function ($query){
+        //get the events that are not finished ordered by most popular
+        $events = Event::popularAllTime()->whereDate('start_date', '>', date('Y-m-d'))->whereDate('start_date', '<', Carbon::now()->addMonths(6))->where(function ($query){
             $query->where('status', 1);
         })->with(['categories', 'media']);
 
@@ -40,8 +42,8 @@ class HomeController extends Controller
                 });
         }
 
-        //get the mose popular events of all time by page view count descending order
-        $events = Event::popularAllTime()->get();
+        // get the events
+        $events = $events->get();
 
         return view('home', [
             'events' => $events,
