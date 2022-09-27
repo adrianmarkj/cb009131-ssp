@@ -60,6 +60,18 @@ Route::middleware(['auth:web'])
  ->get('/reservations', [App\Http\Controllers\ReservationController::class, 'index'])
  ->name('reservation.index');
 
+Route::middleware(['auth:web'])
+ ->get('/profile/{user}', [App\Http\Controllers\UserController::class, 'show'])
+ ->name('profile.show');
+
+Route::middleware(['auth:web'])
+ ->get('/profile/edit/{user}', [App\Http\Controllers\UserController::class, 'edit'])
+ ->name('profile.edit');
+
+Route::middleware(['auth:web'])
+ ->post('/profile/update/{user}', [App\Http\Controllers\UserController::class, 'update'])
+ ->name('profile.update');
+
 Route::get('/archive', [App\Http\Controllers\ArchiveController::class, 'index'])->name('archive');
 
 Route::get('{url}', App\Http\Controllers\PageController::class)->name('pages.show');
