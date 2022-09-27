@@ -18,13 +18,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://bootstrap-colors-extended.herokuapp.com/bootstrap-colors.css" />
     @stack('styles')
 
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-yellow-light shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{-- {{ config('app.name', 'Laravel') }} --}}
@@ -152,12 +153,6 @@
 
             @yield('content')
         </main>
-        {{-- <div class="container">
-            <footer class="py-3 my-4">
-              <x-footer-menu />
-              <p class="text-center text-muted">© {{ date('Y') }} Buttercup Events, Inc</p>
-            </footer>
-        </div> --}}
         <div class="container">
             <footer class="py-5">
               <div class="row">

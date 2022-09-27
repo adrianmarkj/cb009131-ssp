@@ -8,7 +8,7 @@
             <h4>Categories</h4>
             <ul class="list-unstyled">
                 @foreach ($categories as $category)
-                    <li class="p-2 rounded {{ request()->get('cid') == $category->id ? 'bg-info' : '' }}">
+                    <li class="p-2 rounded {{ request()->get('cid') == $category->id ? 'bg-yellow-light' : '' }}">
                         <a href="{{ route('home') }}?cid={{ $category->id }}" class="text-black text-decoration-none">
                             {{ $category->title }}
                         </a>
